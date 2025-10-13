@@ -19,7 +19,7 @@ const theme = createTheme({
   palette: {
     mode: "light",
     primary: {
-      main: "#b44cff", // 粉紫主色
+      main: "#b44cff",
     },
     secondary: {
       main: "#f06292",
@@ -63,7 +63,6 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Container maxWidth="md" sx={{ py: 6 }}>
-        {/* Hero Section */}
         <motion.div
           initial={{ y: -15, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -114,7 +113,6 @@ export default function App() {
           </Box>
         </motion.div>
 
-        {/* About Section */}
         <Card sx={{ mb: 6 }}>
           <CardContent>
             <Typography variant="h2" gutterBottom>
@@ -144,10 +142,9 @@ export default function App() {
           </CardContent>
         </Card>
 
-        {/* My Avatar Section */}
         <Box sx={{ textAlign: "center", mb: 6 }}>
           <Avatar
-            src="/images/my-avatar.jpg" // 请将头像图片放置在 /public/images/ 并命名为 my-avatar.jpg
+            src="/images/my-avatar.jpg"
             alt="My Avatar"
             sx={{
               width: 120,
@@ -165,7 +162,6 @@ export default function App() {
           </Typography>
         </Box>
 
-        {/* Friends Section */}
         <Box id="friends" sx={{ mb: 8 }}>
           <Typography variant="h2" gutterBottom>
             Friends
@@ -202,7 +198,6 @@ export default function App() {
           </Grid>
         </Box>
 
-        {/* Footer */}
         <Box sx={{ textAlign: "center", py: 4, color: "text.secondary" }}>
           © {new Date().getFullYear()} kananosa — built with Material 3 expressive design
         </Box>
