@@ -49,13 +49,14 @@ const theme = createTheme({
   },
 });
 
+const base = import.meta.env.BASE_URL || '/';
 const friends = [
-  "/images/friend1.jpg",
-  "/images/friend2.jpg",
-  "/images/friend3.jpg",
-  "/images/friend4.jpg",
-  "/images/friend5.jpg",
-  "/images/friend6.jpg",
+  `${base}images/friend1.jpg`,
+  `${base}images/friend2.jpg`,
+  `${base}images/friend3.jpg`,
+  `${base}images/friend4.jpg`,
+  `${base}images/friend5.jpg`,
+  `${base}images/friend6.jpg`,
 ];
 
 export default function App() {
@@ -144,7 +145,7 @@ export default function App() {
 
         <Box sx={{ textAlign: "center", mb: 6 }}>
           <Avatar
-            src="/images/my-avatar.jpg"
+            src={`${base}images/my-avatar.jpg`}
             alt="My Avatar"
             sx={{
               width: 120,
