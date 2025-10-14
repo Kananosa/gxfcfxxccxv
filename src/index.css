@@ -4,3 +4,64 @@ html, body, #root {
   margin: 0;
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
 }
+
+/* Dynamic blurred flowing background (lightweight, CSS-only) */
+.dynamic-bg {
+  position: fixed;
+  inset: 0; /* top:0; right:0; bottom:0; left:0 */
+  z-index: -1; /* sit behind app content */
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.dynamic-bg .blob {
+  position: absolute;
+  filter: blur(60px);
+  opacity: 0.85;
+  transform: translate3d(0,0,0);
+  will-change: transform;
+  /* allow gradient to shift slightly */
+  background-size: 200% 200%;
+}
+
+/* individual blob sizes/positions */
+.dynamic-bg .blob--a{ width: 460px; height: 460px; left: -10%; top: -5%; background: linear-gradient(135deg,#b44cff,#7a5cff); }
+.dynamic-bg .blob--b{ width: 520px; height: 520px; right: -12%; top: 10%; background: linear-gradient(45deg,#f06292,#ff9ab8); }
+.dynamic-bg .blob--c{ width: 380px; height: 380px; left: 20%; bottom: -8%; background: linear-gradient(120deg,#7fe7d5,#66d9ff); }
+
+/* make blobs circular */
+.dynamic-bg .blob{ border-radius: 50%; }
+
+/* subtle slow animation to create flowing motion */
+@keyframes float-a {
+  0% { transform: translate3d(0,0,0) rotate(0deg) scale(1); background-position: 0% 50%; }
+  50% { transform: translate3d(56px,36px,0) rotate(6deg) scale(1.06); background-position: 50% 80%; }
+  100% { transform: translate3d(0,0,0) rotate(0deg) scale(1); background-position: 0% 50%; }
+}
+@keyframes float-b {
+  0% { transform: translate3d(0,0,0) rotate(0deg) scale(1); background-position: 100% 40%; }
+  50% { transform: translate3d(-48px,-36px,0) rotate(-4deg) scale(0.98); background-position: 60% 10%; }
+  100% { transform: translate3d(0,0,0) rotate(0deg) scale(1); background-position: 100% 40%; }
+}
+@keyframes float-c {
+  0% { transform: translate3d(0,0,0) rotate(0deg) scale(1); background-position: 10% 60%; }
+  50% { transform: translate3d(36px,-52px,0) rotate(8deg) scale(1.04); background-position: 40% 10%; }
+  100% { transform: translate3d(0,0,0) rotate(0deg) scale(1); background-position: 10% 60%; }
+}
+
+.dynamic-bg .blob--a{ animation: float-a 12s ease-in-out infinite alternate; }
+.dynamic-bg .blob--b{ animation: float-b 16s ease-in-out infinite alternate; }
+.dynamic-bg .blob--c{ animation: float-c 10s ease-in-out infinite alternate; }
+
+/* reduce motion for prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .dynamic-bg .blob { animation: none; }
+}
+
+/* lower GPU/power on small devices */
+@media (max-width: 600px) {
+  .dynamic-bg .blob{ filter: blur(40px); opacity: 0.6; }
+  .dynamic-bg .blob--a{ width: 340px; height: 340px; }
+  .dynamic-bg .blob--b{ width: 380px; height: 380px; }
+  .dynamic-bg .blob--c{ width: 300px; height: 300px; }
+}

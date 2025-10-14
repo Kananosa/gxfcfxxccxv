@@ -63,6 +63,13 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+      {/* dynamic blurred flowing background */}
+      <div className="dynamic-bg" aria-hidden="true">
+        <div className="blob blob--a" />
+        <div className="blob blob--b" />
+        <div className="blob blob--c" />
+      </div>
+
       <Container maxWidth="md" sx={{ py: 6 }}>
         <motion.div
           initial={{ y: -15, opacity: 0 }}
@@ -73,7 +80,7 @@ export default function App() {
             Kananosa
           </Typography>
           <Typography variant="body1" sx={{ mb: 4 }}>
-            牛逼 · 是个人 · I make small things that bring a smile.
+            牛逼 · 是个人 · KanasonaAble
           </Typography>
 
           <Box sx={{ display: "flex", gap: 2, mb: 6 }}>
@@ -159,7 +166,7 @@ export default function App() {
             Kananosa
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            这是我的头像，欢迎来到我的网站！
+            这是我的头像，不点也不欢迎来到我的网站！
           </Typography>
         </Box>
 
