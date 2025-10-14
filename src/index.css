@@ -16,8 +16,8 @@ html, body, #root {
 
 .dynamic-bg .blob {
   position: absolute;
-  filter: blur(60px);
-  opacity: 0.85;
+  filter: blur(200px);
+  opacity: 0.95;
   transform: translate3d(0,0,0);
   will-change: transform;
   /* allow gradient to shift slightly */
@@ -25,9 +25,9 @@ html, body, #root {
 }
 
 /* individual blob sizes/positions */
-.dynamic-bg .blob--a{ width: 460px; height: 460px; left: -10%; top: -5%; background: linear-gradient(135deg,#b44cff,#7a5cff); }
+.dynamic-bg .blob--a{ width: 460px; height: 460px; left: -10%; top: -5%; background: linear-gradient(135deg,#672994,#7a5cff); }
 .dynamic-bg .blob--b{ width: 520px; height: 520px; right: -12%; top: 10%; background: linear-gradient(45deg,#f06292,#ff9ab8); }
-.dynamic-bg .blob--c{ width: 380px; height: 380px; left: 20%; bottom: -8%; background: linear-gradient(120deg,#7fe7d5,#66d9ff); }
+.dynamic-bg .blob--c{ width: 380px; height: 380px; left: 20%; bottom: -8%; background: linear-gradient(120deg,#4589c2,#66d9ff); }
 
 /* make blobs circular */
 .dynamic-bg .blob{ border-radius: 50%; }
